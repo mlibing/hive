@@ -124,6 +124,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Interner;
+import scala.Console;
 
 /**
  * General utility common functions for the Processor to convert operator into
@@ -1989,6 +1990,11 @@ public final class GenMapRedUtils {
           throw new RuntimeException(e);
         }
         inputPaths.add(part.getDataLocation());
+        break;
+      case DYNAMIC_PARTITION:
+        for (Partition dynPart:tableScanOp.getConf().getTableMetadata().getTableSpec().partitions) {
+          inputPaths.add(dynPart.getDataLocation());
+        }
         break;
       default:
         assert false;

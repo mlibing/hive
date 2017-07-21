@@ -517,6 +517,9 @@ public class Driver implements CommandProcessor {
       ASTNode tree;
       try {
         tree = ParseUtils.parse(command, ctx);
+        console.printInfo("Print AST: ");
+        console.printInfo(tree.dump());
+        console.printInfo("--- --- ---");
       } catch (ParseException e) {
         parseError = true;
         throw e;

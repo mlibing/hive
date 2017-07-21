@@ -33,6 +33,3 @@ analyze table analyze_srcpart_partial_scan PARTITION(ds='2008-04-08',hr=11) comp
 describe formatted analyze_srcpart_partial_scan PARTITION(ds='2008-04-08',hr=11);
 describe formatted analyze_srcpart_partial_scan PARTITION(ds='2008-04-09',hr=11);
 drop table analyze_srcpart_partial_scan;
-
-
-
